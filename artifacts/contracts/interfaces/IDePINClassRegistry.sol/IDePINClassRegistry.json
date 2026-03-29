@@ -1,0 +1,176 @@
+{
+  "_format": "hh3-artifact-1",
+  "contractName": "IDePINClassRegistry",
+  "sourceName": "contracts/interfaces/IDePINClassRegistry.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "deviceClass",
+          "type": "uint8"
+        }
+      ],
+      "name": "classConfigs",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint32",
+              "name": "proofFreshnessWindow",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "minProofInterval",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "yieldSmoothingWindowSec",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint16",
+              "name": "classLtvBps",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "liquidationThresholdBps",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "confidenceWeightBps",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "staleMetadataHaircutBps",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "staleProofExtraHaircutBps",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint8",
+              "name": "minConfidenceToBorrow",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "baseCollateralValueWad",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "requireInitialAttestation",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint32",
+              "name": "supportedProofTypesBitmask",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct IDePINClassRegistry.ClassConfig",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint8",
+          "name": "deviceClass",
+          "type": "uint8"
+        }
+      ],
+      "name": "getClassConfig",
+      "outputs": [
+        {
+          "components": [
+            {
+              "internalType": "uint32",
+              "name": "proofFreshnessWindow",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "minProofInterval",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint32",
+              "name": "yieldSmoothingWindowSec",
+              "type": "uint32"
+            },
+            {
+              "internalType": "uint16",
+              "name": "classLtvBps",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "liquidationThresholdBps",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "confidenceWeightBps",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "staleMetadataHaircutBps",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint16",
+              "name": "staleProofExtraHaircutBps",
+              "type": "uint16"
+            },
+            {
+              "internalType": "uint8",
+              "name": "minConfidenceToBorrow",
+              "type": "uint8"
+            },
+            {
+              "internalType": "uint256",
+              "name": "baseCollateralValueWad",
+              "type": "uint256"
+            },
+            {
+              "internalType": "bool",
+              "name": "requireInitialAttestation",
+              "type": "bool"
+            },
+            {
+              "internalType": "uint32",
+              "name": "supportedProofTypesBitmask",
+              "type": "uint32"
+            }
+          ],
+          "internalType": "struct IDePINClassRegistry.ClassConfig",
+          "name": "",
+          "type": "tuple"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "immutableReferences": {},
+  "inputSourceName": "project/contracts/interfaces/IDePINClassRegistry.sol",
+  "buildInfoId": "solc-0_8_19-1ef7364bee65fe47cce44adf0cd306f2b04bd606"
+}

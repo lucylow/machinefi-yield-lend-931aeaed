@@ -1,0 +1,33 @@
+{
+  "_format": "hh3-artifact-1",
+  "contractName": "IProtocolParameterRegistry",
+  "sourceName": "contracts/interfaces/IProtocolParameterRegistry.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "bytes32",
+          "name": "key",
+          "type": "bytes32"
+        }
+      ],
+      "name": "uintParam",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "",
+          "type": "uint256"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "immutableReferences": {},
+  "inputSourceName": "project/contracts/interfaces/IProtocolParameterRegistry.sol",
+  "buildInfoId": "solc-0_8_19-1ef7364bee65fe47cce44adf0cd306f2b04bd606"
+}

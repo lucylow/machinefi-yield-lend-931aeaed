@@ -1,0 +1,13 @@
+{
+  "_format": "hh3-artifact-1",
+  "contractName": "LendingAccountingLib",
+  "sourceName": "contracts/libraries/LendingAccountingLib.sol",
+  "abi": [],
+  "bytecode": "0x60808060405234601757603a9081601d823930815050f35b600080fdfe600080fdfea26469706673582212203d4bc4f28e36c73c38794bc6987ec11c50844f13c6fe32098a2cbe5b9ff9e66664736f6c63430008130033",
+  "deployedBytecode": "0x600080fdfea26469706673582212203d4bc4f28e36c73c38794bc6987ec11c50844f13c6fe32098a2cbe5b9ff9e66664736f6c63430008130033",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "immutableReferences": {},
+  "inputSourceName": "project/contracts/libraries/LendingAccountingLib.sol",
+  "buildInfoId": "solc-0_8_19-148c98347c17a2f8ea0df427354d3cdb12644a10"
+}

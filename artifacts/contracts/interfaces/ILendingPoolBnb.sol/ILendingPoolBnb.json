@@ -1,0 +1,89 @@
+{
+  "_format": "hh3-artifact-1",
+  "contractName": "ILendingPoolBnb",
+  "sourceName": "contracts/interfaces/ILendingPoolBnb.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "uint256[]",
+          "name": "nftIds",
+          "type": "uint256[]"
+        },
+        {
+          "internalType": "uint256[]",
+          "name": "newCollaterals",
+          "type": "uint256[]"
+        }
+      ],
+      "name": "batchUpdateCollateralValueFromOracle",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "nftId",
+          "type": "uint256"
+        }
+      ],
+      "name": "getPosition",
+      "outputs": [
+        {
+          "internalType": "uint256",
+          "name": "debt",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "collateralValue",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "ltv",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "yieldPercentage",
+          "type": "uint256"
+        },
+        {
+          "internalType": "address",
+          "name": "yieldToken",
+          "type": "address"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [
+        {
+          "internalType": "uint256",
+          "name": "nftId",
+          "type": "uint256"
+        },
+        {
+          "internalType": "uint256",
+          "name": "newCollateral",
+          "type": "uint256"
+        }
+      ],
+      "name": "updateCollateralValue",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "immutableReferences": {},
+  "inputSourceName": "project/contracts/interfaces/ILendingPoolBnb.sol",
+  "buildInfoId": "solc-0_8_19-1ef7364bee65fe47cce44adf0cd306f2b04bd606"
+}

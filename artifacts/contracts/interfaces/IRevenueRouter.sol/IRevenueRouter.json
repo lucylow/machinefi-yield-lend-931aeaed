@@ -1,0 +1,32 @@
+{
+  "_format": "hh3-artifact-1",
+  "contractName": "IRevenueRouter",
+  "sourceName": "contracts/interfaces/IRevenueRouter.sol",
+  "abi": [
+    {
+      "inputs": [
+        {
+          "internalType": "enum RevenueSource",
+          "name": "src",
+          "type": "uint8"
+        },
+        {
+          "internalType": "uint256",
+          "name": "amount",
+          "type": "uint256"
+        }
+      ],
+      "name": "routeFee",
+      "outputs": [],
+      "stateMutability": "nonpayable",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "immutableReferences": {},
+  "inputSourceName": "project/contracts/interfaces/IRevenueRouter.sol",
+  "buildInfoId": "solc-0_8_19-1ef7364bee65fe47cce44adf0cd306f2b04bd606"
+}

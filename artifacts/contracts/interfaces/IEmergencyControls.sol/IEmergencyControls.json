@@ -1,0 +1,40 @@
+{
+  "_format": "hh3-artifact-1",
+  "contractName": "IEmergencyControls",
+  "sourceName": "contracts/interfaces/IEmergencyControls.sol",
+  "abi": [
+    {
+      "inputs": [],
+      "name": "oracleUpdatesPaused",
+      "outputs": [
+        {
+          "internalType": "bool",
+          "name": "",
+          "type": "bool"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    },
+    {
+      "inputs": [],
+      "name": "riskMode",
+      "outputs": [
+        {
+          "internalType": "enum IEmergencyControls.ProtocolRiskMode",
+          "name": "",
+          "type": "uint8"
+        }
+      ],
+      "stateMutability": "view",
+      "type": "function"
+    }
+  ],
+  "bytecode": "0x",
+  "deployedBytecode": "0x",
+  "linkReferences": {},
+  "deployedLinkReferences": {},
+  "immutableReferences": {},
+  "inputSourceName": "project/contracts/interfaces/IEmergencyControls.sol",
+  "buildInfoId": "solc-0_8_19-1ef7364bee65fe47cce44adf0cd306f2b04bd606"
+}
