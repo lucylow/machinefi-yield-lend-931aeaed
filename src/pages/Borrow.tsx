@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { useWeb3 } from '@/contexts/Web3Context';
 import { useHardwareNFT, type HardwareDevice } from '@/hooks/useHardwareNFT';
+import { useProtocolSimulationOptional } from '@/contexts/ProtocolSimulationContext';
 import { getLoadErrorMessage } from '@/lib/errors';
 import { motion } from 'framer-motion';
 import DepositHardware from '@/components/dapp/DepositHardware';
@@ -31,6 +32,8 @@ const Borrow = () => {
   const { gateFor } = useCompliance();
   const borrowGate = gateFor('borrow');
   const { getUserDevices } = useHardwareNFT();
+  const sim = useProtocolSimulationOptional();
+  const isDemoMode = sim?.isDemoSimulation ?? true;
   const [myNFTs, setMyNFTs] = useState<HardwareDevice[]>([]);
   const [aiDefaults, setAiDefaults] = useState<AiLoanDefaults | null>(null);
   const [selectedDevice, setSelectedDevice] = useState('helium');
@@ -38,7 +41,7 @@ const Borrow = () => {
   const [aiRiskScore, setAiRiskScore] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    if (!isConnected) return;
+    if (!isConnected && !isDemoMode) return;
     let cancelled = false;
     getUserDevices()
       .then((list) => {
@@ -53,7 +56,7 @@ const Borrow = () => {
     return () => {
       cancelled = true;
     };
-  }, [isConnected, getUserDevices]);
+  }, [isConnected, isDemoMode, getUserDevices]);
 
   const handlePrediction = (defaults: AiLoanDefaults) => {
     setAiDefaults(defaults);
@@ -72,7 +75,7 @@ const Borrow = () => {
           Borrow Against Your Hardware
         </motion.h1>
 
-        {!isConnected ? (
+        {!isConnected && !isDemoMode ? (
           <div className="glass-card p-12 text-center" style={{ borderRadius: '2rem' }}>
             <p className="text-2xl mb-2">🔗</p>
             <p className="text-muted-foreground mb-4">Connect your wallet to start borrowing.</p>

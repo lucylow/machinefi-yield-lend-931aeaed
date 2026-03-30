@@ -16,10 +16,11 @@ import { HealthBar } from "@/components/defi/HealthBar";
 import { healthFactorFromUsd, parseUsd } from "@/lib/healthFactor";
 import { TransactionModal, type TxPhase } from "@/components/defi/TransactionModal";
 import { WarningBanner } from "@/components/defi/WarningBanner";
+import { DemoModeBadge } from "@/components/demo/DemoModeBadge";
 
 const RepayPage = () => {
   const { isConnected, connectWallet } = useWeb3();
-  const { getUserPositions, repay, loading } = useLendingPool();
+  const { getUserPositions, repay, loading, isDemoMode } = useLendingPool();
   const [loans, setLoans] = useState<LoanPosition[]>([]);
   const [selectedId, setSelectedId] = useState<string>("");
   const [pct, setPct] = useState(100);
@@ -28,7 +29,7 @@ const RepayPage = () => {
   const [txHash, setTxHash] = useState<string | null>(null);
 
   useEffect(() => {
-    if (!isConnected) return;
+    if (!isConnected && !isDemoMode) return;
     let cancelled = false;
     getUserPositions()
       .then((l) => {
@@ -44,7 +45,7 @@ const RepayPage = () => {
     return () => {
       cancelled = true;
     };
-  }, [isConnected, getUserPositions]);
+  }, [isConnected, isDemoMode, getUserPositions]);
 
   const loan = useMemo(() => loans.find((l) => String(l.nftId) === selectedId) ?? null, [loans, selectedId]);
 
@@ -88,7 +89,7 @@ const RepayPage = () => {
         }
       />
 
-      {!isConnected ? (
+      {!isConnected && !isDemoMode ? (
         <EmptyStateCard
           title="Wallet required"
           description="Repay transactions are signed by your wallet; stablecoin allowance may be requested before the pool pull."

@@ -97,7 +97,6 @@ export const useHardwareNFT = () => {
 
   const getUserDevices = useCallback(async (): Promise<HardwareDevice[]> => {
     if (isDemoSimulation || !hardwareNFTContract) {
-      if (!isConnected) return [];
       return engine.getHardwareDevices();
     }
     if (!isConnected) return [];

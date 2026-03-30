@@ -12,12 +12,12 @@ import { PositionCard } from "@/components/defi/PositionCard";
 
 const Positions = () => {
   const { isConnected, connectWallet } = useWeb3();
-  const { getUserPositions, repay } = useLendingPool();
+  const { getUserPositions, repay, isDemoMode } = useLendingPool();
   const [loans, setLoans] = useState<LoanPosition[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!isConnected) {
+    if (!isConnected && !isDemoMode) {
       setLoans([]);
       setLoading(false);
       return;
@@ -40,7 +40,7 @@ const Positions = () => {
     return () => {
       cancelled = true;
     };
-  }, [isConnected, getUserPositions]);
+  }, [isConnected, isDemoMode, getUserPositions]);
 
   const handleRepay = async (nftId: number) => {
     await repay(nftId);
@@ -55,15 +55,13 @@ const Positions = () => {
         title="My positions"
         description="Each row is a machine-backed loan: collateral marks, debt, and health factor update with oracle and proof freshness."
         actions={
-          isConnected ? (
-            <Button asChild variant="outline" size="sm" className="rounded-lg border-primary/40">
-              <Link to="/borrow">New borrow</Link>
-            </Button>
-          ) : null
+          <Button asChild variant="outline" size="sm" className="rounded-lg border-primary/40">
+            <Link to="/borrow">New borrow</Link>
+          </Button>
         }
       />
 
-      {!isConnected ? (
+      {!isConnected && !isDemoMode ? (
         <EmptyStateCard
           title="Connect wallet"
           description="Positions are read from your wallet and, when deployed, from the lending pool contract and indexer."
