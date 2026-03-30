@@ -75,7 +75,7 @@ const Borrow = () => {
           Borrow Against Your Hardware
         </motion.h1>
 
-        {!isConnected ? (
+        {!isConnected && !isDemoMode ? (
           <div className="glass-card p-12 text-center" style={{ borderRadius: '2rem' }}>
             <p className="text-2xl mb-2">🔗</p>
             <p className="text-muted-foreground mb-4">Connect your wallet to start borrowing.</p>

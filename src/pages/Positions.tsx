@@ -61,7 +61,7 @@ const Positions = () => {
         }
       />
 
-      {!isConnected ? (
+      {!isConnected && !isDemoMode ? (
         <EmptyStateCard
           title="Connect wallet"
           description="Positions are read from your wallet and, when deployed, from the lending pool contract and indexer."

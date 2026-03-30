@@ -89,7 +89,7 @@ const RepayPage = () => {
         }
       />
 
-      {!isConnected ? (
+      {!isConnected && !isDemoMode ? (
         <EmptyStateCard
           title="Wallet required"
           description="Repay transactions are signed by your wallet; stablecoin allowance may be requested before the pool pull."
