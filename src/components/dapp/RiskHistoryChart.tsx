@@ -27,7 +27,7 @@ const DEVICE_CONFIGS: DeviceHistoryConfig[] = [
 type TimeRange = '7d' | '30d' | '90d';
 
 type DeviceTypeKey = (typeof DEVICE_CONFIGS)[number]['deviceType'];
-type RiskChartPoint = { date: string } & Partial<Record<DeviceTypeKey, number>>;
+type RiskChartPoint = Record<string, number | string>;
 
 function generateHistory(config: DeviceHistoryConfig, days: number, seed: number) {
   const points: { date: string; risk: number; ltv: number }[] = [];

@@ -176,8 +176,8 @@ export const Web3Provider: React.FC<{ children: React.ReactNode }> = ({ children
 
         if (correctNet) {
           const setup = setupContracts(s);
-          if (!setup.ok) {
-            setConnectionError(getErrorMessage(setup.error) || "Could not initialize protocol contracts.");
+if (!setup.ok) {
+            setConnectionError(getErrorMessage((setup as { ok: false; error: unknown }).error) || "Could not initialize protocol contracts.");
           }
         } else {
           setHardwareNFTContract(null);

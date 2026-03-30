@@ -2,7 +2,7 @@
 export function getErrorMessage(err: unknown): string {
   if (err instanceof Error) {
     if (err.message?.trim()) return err.message;
-    if (err.cause !== undefined) return getErrorMessage(err.cause);
+    if ((err as any).cause !== undefined) return getErrorMessage((err as any).cause);
     return 'Something went wrong. Please try again.';
   }
   if (typeof err === 'string') return err;

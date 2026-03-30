@@ -73,6 +73,11 @@ export const DEMO_SCENARIOS: Record<DemoScenarioId, ScenarioSeed> = {
     description: "Moderate leverage, fresh proofs, stable yield.",
     poolLiquidityUsd: 12_800_000,
     reserveFactorBps: 1500,
+    overviewAnchors: {
+      totalCollateralUsd: 13_200_000,
+      totalBorrowedUsd: 3_850_000,
+      activeDevices: 1320,
+    },
     devices: [helium(1, "001"), hive(2, "014"), ev(3, "charger01")],
     loans: [
       { nftId: 1, principalUsd: 2850, accruedInterestUsd: 38.2, borrowAprBps: 920, status: "active" },

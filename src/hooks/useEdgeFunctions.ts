@@ -164,7 +164,7 @@ export async function createNotification(params: {
   if (!isRecord(data) || !isRecord(data.notification)) {
     throw new Error('loan-notifications: missing notification object');
   }
-  return data.notification as Notification;
+  return data.notification as unknown as Notification;
 }
 
 // Portfolio Analytics
