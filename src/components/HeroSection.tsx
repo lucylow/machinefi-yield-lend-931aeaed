@@ -6,6 +6,7 @@ import { formatBpsAsPercent, formatUsd } from "@/lib/format";
 import { WorkflowStrip } from "@/components/protocol/WorkflowStrip";
 import { useProtocolSimulationOptional } from "@/contexts/ProtocolSimulationContext";
 
+
 // Floating particles background
 const Particles = () => (
   <div className="absolute inset-0 overflow-hidden pointer-events-none">
