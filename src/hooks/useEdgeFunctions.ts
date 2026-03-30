@@ -119,7 +119,7 @@ export async function fetchDeviceYield(device?: string): Promise<DeviceYieldData
   const data: unknown = await invokeWithRetry<unknown>(`yield-oracle${params}`, { method: 'GET' });
   if (device) {
     if (!isRecord(data)) throw new Error('yield-oracle: invalid device payload');
-    return data as DeviceYieldData;
+    return data as unknown as DeviceYieldData;
   }
   if (!isRecord(data) || !Array.isArray(data.devices)) {
     throw new Error('yield-oracle: missing devices array');
