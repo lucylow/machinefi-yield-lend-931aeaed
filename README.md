@@ -494,21 +494,6 @@ Recommended roadmap:
 - Phase 5: testnet pilot.
 - Phase 6: mainnet readiness and audit.
 
-***
-
-## Suggested README Diagram Pack
-
-If you want this README to feel truly “super technical,” include these diagrams:
-- system architecture
-- chain boundary map
-- device lifecycle state machine
-- position lifecycle state machine
-- proof and oracle data flow
-- liquidation flow
-- fee routing flow
-- governance flow
-- deployment topology
-- frontend read model
 
 ***
 
