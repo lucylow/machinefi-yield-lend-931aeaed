@@ -196,5 +196,5 @@ export const useLendingPool = () => {
   /** True when the hook will return demo data regardless of wallet state. */
   const isDemoMode = isDemoSimulation || !lendingPoolContract;
 
-  return { deposit, repay, liquidate, getPosition, getUserPositions, loading };
+  return { deposit, repay, liquidate, getPosition, getUserPositions, loading, isDemoMode };
 };
