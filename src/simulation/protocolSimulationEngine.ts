@@ -472,9 +472,12 @@ export class ProtocolSimulationEngine {
   }
 
   getSnapshot(source: ProtocolDataSource = "mock"): ProtocolSimulationSnapshot {
+    if (this._cachedSnapshot && !this._snapshotDirty) {
+      return this._cachedSnapshot;
+    }
     const overview = this.buildOverview();
     const { supply, borrow } = apyFromUtilization(overview.poolUtilizationBps, this.scenario.reserveFactorBps);
-    return {
+    const snap: ProtocolSimulationSnapshot = {
       source,
       overview: { ...overview, supplyApyBps: supply, borrowApyBps: borrow },
       borrowApyLabel: formatAprFromBps(borrow),
@@ -488,6 +491,9 @@ export class ProtocolSimulationEngine {
       mockBlockNumber: this.blockNumber,
       scenarioId: this.scenario.id,
     };
+    this._cachedSnapshot = snap;
+    this._snapshotDirty = false;
+    return snap;
   }
 
   getHardwareDevices(): HardwareDevice[] {
