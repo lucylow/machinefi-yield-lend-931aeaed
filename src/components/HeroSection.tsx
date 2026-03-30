@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { formatBpsAsPercent, formatUsd } from "@/lib/format";
 import { WorkflowStrip } from "@/components/protocol/WorkflowStrip";
-import { useProtocolSimulation } from "@/contexts/ProtocolSimulationContext";
+import { useProtocolSimulationOptional } from "@/contexts/ProtocolSimulationContext";
 
 // Floating particles background
 const Particles = () => (
@@ -34,8 +34,13 @@ const Particles = () => (
 );
 
 const HeroSection = () => {
-  const { snapshot } = useProtocolSimulation();
-  const o = snapshot.overview;
+  const sim = useProtocolSimulationOptional();
+  const o = sim?.snapshot?.overview ?? {
+    totalCollateralUsd: 0,
+    totalBorrowedUsd: 0,
+    activeDevices: 0,
+    liquidationThresholdBps: 7500,
+  };
   const stats = [
     {
       icon: "◈",
