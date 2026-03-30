@@ -236,6 +236,8 @@ export class ProtocolSimulationEngine {
   }
 
   private notify() {
+    this._snapshotDirty = true;
+    this._cachedSnapshot = null;
     this.listeners.forEach((fn) => fn());
   }
 
