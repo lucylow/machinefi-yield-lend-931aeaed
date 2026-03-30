@@ -5,6 +5,12 @@
 
 MachineFi Lending Pool is a BNB Chain-native protocol that lets operators borrow stablecoins against the future yield of productive hardware such as Helium hotspots, Hivemapper dashcams, and EV chargers. The system combines on-chain device identity, proof-of-operation, oracle-driven valuation, collateralized lending, liquidations, treasury routing, and governance into one modular architecture. 
 
+[https://machinefi-yield-lend.lovable.app/](https://machinefi-yield-lend.lovable.app/)
+
+Blockchain Whitepaper
+
+[https://drive.google.com/file/d/1OSrtg2kPia8ifxcSLsZqZ3rw3-WpJ0CQ/view?usp=sharing](https://drive.google.com/file/d/1OSrtg2kPia8ifxcSLsZqZ3rw3-WpJ0CQ/view?usp=sharing)
+
 ***
 
 ## Table of Contents
@@ -86,7 +92,7 @@ The architecture is intentionally modular. Device identity, proof verification, 
 
 ## Chain Design
 
-The repo context points to BNB Chain as the primary settlement layer, with opBNB for high-frequency updates and BNB Greenfield for proof metadata and off-chain attestations. This split is useful because core loan settlement needs finality and liquidity, while proof refresh and telemetry can happen more frequently and cheaply. 
+The MachineFi context points to BNB Chain as the primary settlement layer, with opBNB for high-frequency updates and BNB Greenfield for proof metadata and off-chain attestations. This split is useful because core loan settlement needs finality and liquidity, while proof refresh and telemetry can happen more frequently and cheaply. 
 
 ```mermaid
 flowchart TB
@@ -254,7 +260,7 @@ Example model:
 
 ## Fee Model
 
-The repo material already frames a protocol fee structure with origination fees, interest spreads, liquidation fees, and treasury allocation. For a blockchain-first README, define them clearly:
+The MachineFi material already frames a protocol fee structure with origination fees, interest spreads, liquidation fees, and treasury allocation. For a blockchain-first README, define them clearly:
 
 | Fee Type | Trigger | Purpose |
 |---|---|---|
@@ -325,7 +331,7 @@ This keeps the protocol from trusting a single raw data source.
 
 ## Liquidation Engine
 
-Liquidation should be permissionless and deterministic. The repo content supports this with keeper role ideas, liquidation bonus logic, and threshold-based triggers.
+Liquidation should be permissionless and deterministic. The MachineFi content supports this with keeper role ideas, liquidation bonus logic, and threshold-based triggers.
 
 ```mermaid
 flowchart TB
@@ -352,7 +358,7 @@ Key requirements:
 
 ## Indexing and Analytics
 
-The repo material explicitly references subgraph indexing and event-based read models. That should become a first-class README section because the frontend, dashboards, and keepers need clean event streams. 
+The MachineFi material explicitly references subgraph indexing and event-based read models. That should become a first-class README section because the frontend, dashboards, and keepers need clean event streams. 
 
 Events to index:
 - `DeviceRegistered`
@@ -377,7 +383,7 @@ Good events are critical because they make it possible to build:
 
 ## Frontend Read Model
 
-The frontend should not depend only on raw contract calls. The repo also includes a strong demo and fallback data philosophy, which points to an indexer-plus-contract read model. 
+The frontend should not depend only on raw contract calls. The MachineFi also includes a strong demo and fallback data philosophy, which points to an indexer-plus-contract read model. 
 
 Recommended read layers:
 - Direct contract reads for current position state.
@@ -391,7 +397,7 @@ This makes the app feel live even when RPC calls fail or data is sparse.
 
 ## Security Model
 
-The repo content stresses security controls such as access control, oracle fallback, reentrancy protection, and exact math. A good README should make these explicit. 
+The MachineFi content stresses security controls such as access control, oracle fallback, reentrancy protection, and exact math. A good README should make these explicit. 
 
 Threats to document:
 - fake proof submissions,
@@ -435,7 +441,7 @@ For a real README, include:
 
 ## Testing Strategy
 
-The repo documentation repeatedly emphasizes edge-case testing, risk validation, and protocol invariants. That means the README should also describe the testing model. 
+The MachineFi documentation repeatedly emphasizes edge-case testing, risk validation, and protocol invariants. That means the README should also describe the testing model. 
 
 Test categories:
 - device registration,
@@ -459,7 +465,7 @@ Add invariant tests for:
 
 ## Developer Guide
 
-A good developer workflow for this repo should include:
+A good developer workflow for this MachineFi should include:
 - local chain setup,
 - deployment order,
 - indexer bootstrapping,
@@ -478,7 +484,7 @@ Suggested section structure:
 ## Test Execution
 ```
 
-This keeps the repo usable for contributors and judges without making them reverse-engineer the architecture.
+This keeps the MachineFi usable for contributors and judges without making them reverse-engineer the architecture.
 
 ***
 
