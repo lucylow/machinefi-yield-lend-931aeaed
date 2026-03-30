@@ -32,6 +32,8 @@ const Borrow = () => {
   const { gateFor } = useCompliance();
   const borrowGate = gateFor('borrow');
   const { getUserDevices } = useHardwareNFT();
+  const sim = useProtocolSimulationOptional();
+  const isDemoMode = sim?.isDemoSimulation ?? true;
   const [myNFTs, setMyNFTs] = useState<HardwareDevice[]>([]);
   const [aiDefaults, setAiDefaults] = useState<AiLoanDefaults | null>(null);
   const [selectedDevice, setSelectedDevice] = useState('helium');
@@ -39,7 +41,7 @@ const Borrow = () => {
   const [aiRiskScore, setAiRiskScore] = useState<number | undefined>(undefined);
 
   useEffect(() => {
-    if (!isConnected) return;
+    if (!isConnected && !isDemoMode) return;
     let cancelled = false;
     getUserDevices()
       .then((list) => {
@@ -54,7 +56,7 @@ const Borrow = () => {
     return () => {
       cancelled = true;
     };
-  }, [isConnected, getUserDevices]);
+  }, [isConnected, isDemoMode, getUserDevices]);
 
   const handlePrediction = (defaults: AiLoanDefaults) => {
     setAiDefaults(defaults);
