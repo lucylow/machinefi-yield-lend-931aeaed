@@ -55,11 +55,9 @@ const Positions = () => {
         title="My positions"
         description="Each row is a machine-backed loan: collateral marks, debt, and health factor update with oracle and proof freshness."
         actions={
-          isConnected ? (
-            <Button asChild variant="outline" size="sm" className="rounded-lg border-primary/40">
-              <Link to="/borrow">New borrow</Link>
-            </Button>
-          ) : null
+          <Button asChild variant="outline" size="sm" className="rounded-lg border-primary/40">
+            <Link to="/borrow">New borrow</Link>
+          </Button>
         }
       />
 
