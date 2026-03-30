@@ -33,7 +33,7 @@ MachineFi Lending Pool is a BNB Chain-native protocol that lets operators borrow
 
 ## Overview
 
-The protocol’s goal is to turn real-world productive machines into financeable on-chain collateral. Instead of treating hardware as a static NFT, the system treats a device as a yield-bearing economic object whose proof freshness, realized output, and risk score affect borrow power over time. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+The protocol’s goal is to turn real-world productive machines into financeable on-chain collateral. Instead of treating hardware as a static NFT, the system treats a device as a yield-bearing economic object whose proof freshness, realized output, and risk score affect borrow power over time.
 
 The repository framing already includes the core building blocks: `HardwareNFT`, `YieldToken`, `LendingPool`, `OracleConsumer`, `Liquidator`, plus governance and treasury components such as `MACH`, `MachineFiGovernor`, and `Treasury`. This README turns that architecture into a blockchain-first protocol specification with explicit state flow, event design, risk controls, and deployment assumptions. 
 
@@ -49,9 +49,9 @@ The protocol follows one thesis:
 4. Future yield is priced as collateral.
 5. Collateral unlocks stablecoin liquidity.
 6. Risk is continuously re-evaluated.
-7. Unsafe positions are liquidated deterministically. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+7. Unsafe positions are liquidated deterministically.
 
-That thesis is the product, the risk model, and the business model all at once. The blockchain layer must make every step explicit and auditable. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+That thesis is the product, the risk model, and the business model all at once. The blockchain layer must make every step explicit and auditable.
 
 ***
 
@@ -99,7 +99,7 @@ flowchart TB
   GF --> BSC
 ```
 
-A clean chain boundary model matters. BSC should remain the canonical source of truth for debt, collateral, liquidation, and governance state, while opBNB and Greenfield support faster proof and metadata flows. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+A clean chain boundary model matters. BSC should remain the canonical source of truth for debt, collateral, liquidation, and governance state, while opBNB and Greenfield support faster proof and metadata flows.
 
 ***
 
@@ -116,26 +116,26 @@ Recommended fields include:
 - `registrationTime`
 - `lastProofTimestamp`
 - `isActive`
-- `greenfieldProofCID` [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- `greenfieldProofCID`
 
 The contract should emit lifecycle events such as `DeviceRegistered`, `ProofSubmitted`, `DeviceStatusChanged`, and `DeviceRevoked` to make indexing reliable. 
 
 ### YieldToken
 
-`YieldToken` represents a claim on future machine rewards. It should be minted only by the lending pool or a trusted factory and burned when the position is repaid, liquidated, or settled. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+`YieldToken` represents a claim on future machine rewards. It should be minted only by the lending pool or a trusted factory and burned when the position is repaid, liquidated, or settled.
 
 The token is not just a transfer asset; it is part of the collateral accounting model. Its supply should match the yield allocation tied to the underlying device or position. 
 
 ### LendingPool
 
-`LendingPool` is the canonical borrowing engine. It must manage deposit, borrow, repay, interest accrual, collateral refresh, and liquidation with deterministic math and explicit state transitions. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+`LendingPool` is the canonical borrowing engine. It must manage deposit, borrow, repay, interest accrual, collateral refresh, and liquidation with deterministic math and explicit state transitions.
 
 Its responsibilities include:
 - enforcing LTV ceilings,
 - using oracle values for collateral pricing,
 - tracking accrued debt,
 - freezing or penalizing stale positions,
-- exposing health factor data for frontends and keepers. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- exposing health factor data for frontends and keepers.
 
 ### OracleConsumer
 
@@ -146,7 +146,7 @@ A good oracle layer should not simply return a price. It should return:
 - confidence score,
 - freshness status,
 - anomaly flags,
-- stale-data fallback behavior. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- stale-data fallback behavior.
 
 ### Liquidator
 
@@ -157,7 +157,7 @@ The liquidation engine should support:
 - partial liquidation,
 - full liquidation,
 - keeper incentives,
-- residual collateral handling. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- residual collateral handling.
 
 ***
 
@@ -182,7 +182,7 @@ sequenceDiagram
   Liquidator->>LendingPool: liquidate if unhealthy
 ```
 
-The flow is designed so that the device does not directly control credit. Instead, proofs and oracle data update the protocol’s view of the device, and the lending engine uses that view to price risk. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+The flow is designed so that the device does not directly control credit. Instead, proofs and oracle data update the protocol’s view of the device, and the lending engine uses that view to price risk.
 
 ***
 
@@ -242,7 +242,7 @@ A strong risk model should express those risks numerically through:
 - freshness score,
 - confidence score,
 - haircut factor,
-- liquidation threshold. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- liquidation threshold.
 
 Example model:
 - Fresh proof increases confidence.
@@ -254,7 +254,7 @@ Example model:
 
 ## Fee Model
 
-The repo material already frames a protocol fee structure with origination fees, interest spreads, liquidation fees, and treasury allocation. For a blockchain-first README, define them clearly: [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+The repo material already frames a protocol fee structure with origination fees, interest spreads, liquidation fees, and treasury allocation. For a blockchain-first README, define them clearly:
 
 | Fee Type | Trigger | Purpose |
 |---|---|---|
@@ -264,7 +264,7 @@ The repo material already frames a protocol fee structure with origination fees,
 | Verification fee | Proof / oracle checks | Infrastructure and attestation cost |
 | Premium service fee | Optional operator tier | Faster refresh, analytics, higher service level |
 
-Fees should be configured through governance and not hardcoded into frontends. That allows the protocol to evolve without breaking accounting. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+Fees should be configured through governance and not hardcoded into frontends. That allows the protocol to evolve without breaking accounting.
 
 ***
 
@@ -297,7 +297,7 @@ Governance should be able to adjust:
 - oracle providers,
 - treasury allocation weights. 
 
-The treasury should expose transparent balances and inflow sources so that protocol health is visible to users, partners, and auditors. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+The treasury should expose transparent balances and inflow sources so that protocol health is visible to users, partners, and auditors.
 
 ***
 
@@ -310,7 +310,7 @@ A clean oracle model should answer:
 - Is the source credible?
 - Is the value within tolerance?
 - Is the feed stale?
-- What fallback should apply if the feed fails? [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- What fallback should apply if the feed fails?
 
 Suggested proof pipeline:
 1. Device signs heartbeat.
@@ -325,7 +325,7 @@ This keeps the protocol from trusting a single raw data source.
 
 ## Liquidation Engine
 
-Liquidation should be permissionless and deterministic. The repo content supports this with keeper role ideas, liquidation bonus logic, and threshold-based triggers. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+Liquidation should be permissionless and deterministic. The repo content supports this with keeper role ideas, liquidation bonus logic, and threshold-based triggers.
 
 ```mermaid
 flowchart TB
@@ -346,7 +346,7 @@ Key requirements:
 - Prefer partial liquidation before full liquidation.
 - Emit detailed state change events.
 - Preserve any excess value after debt recovery where policy allows.
-- Keep liquidation math reproducible and testable. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- Keep liquidation math reproducible and testable.
 
 ***
 
@@ -371,7 +371,7 @@ Good events are critical because they make it possible to build:
 - risk alerts,
 - liquidation feeds,
 - treasury analytics,
-- governance history. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- governance history.
 
 ***
 
@@ -383,7 +383,7 @@ Recommended read layers:
 - Direct contract reads for current position state.
 - Indexed events for history and analytics.
 - Cached fallback data for offline or demo states.
-- Mock data only when live values are unavailable. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- Mock data only when live values are unavailable.
 
 This makes the app feel live even when RPC calls fail or data is sparse.
 
@@ -400,7 +400,7 @@ Threats to document:
 - liquidation griefing,
 - precision mismatches,
 - unauthorized minting or burning,
-- governance capture. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- governance capture.
 
 Mitigations:
 - role separation,
@@ -414,7 +414,7 @@ Mitigations:
 
 ## Deployment Model
 
-The repo’s structure strongly implies BSC testnet/mainnet deployment with opBNB and Greenfield integration. Document deployment as a chain-aware process: [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+The repo’s structure strongly implies BSC testnet/mainnet deployment with opBNB and Greenfield integration. Document deployment as a chain-aware process:
 
 1. Deploy `HardwareNFT`.
 2. Deploy `YieldToken` or factory.
@@ -422,14 +422,14 @@ The repo’s structure strongly implies BSC testnet/mainnet deployment with opBN
 4. Deploy `LendingPool`.
 5. Deploy `Liquidator`.
 6. Deploy treasury/governance components.
-7. Configure addresses, chain IDs, and oracle sources. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+7. Configure addresses, chain IDs, and oracle sources.
 
 For a real README, include:
 - chain IDs,
 - required RPC endpoints,
 - supported reward token addresses,
 - treasury and governor addresses,
-- role assignment steps. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- role assignment steps.
 
 ***
 
@@ -447,7 +447,7 @@ Test categories:
 - repayment flows,
 - liquidation flows,
 - governance updates,
-- treasury routing. [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- treasury routing.
 
 Add invariant tests for:
 - non-existent devices cannot be borrowed against,
@@ -508,7 +508,7 @@ If you want this README to feel truly “super technical,” include these diagr
 - fee routing flow
 - governance flow
 - deployment topology
-- frontend read model [ppl-ai-file-upload.s3.amazonaws](https://ppl-ai-file-upload.s3.amazonaws.com/web/direct-files/attachments/87326718/6d94f97a-5695-4dde-bbab-f40e64ab650e/RWA-Demo-Day-Project-Recruitment-Officially-Launched.-DePIN-Inspired-RWA-Collateralizer.docx)
+- frontend read model
 
 ***
 
