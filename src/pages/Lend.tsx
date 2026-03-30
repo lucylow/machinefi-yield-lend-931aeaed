@@ -60,7 +60,7 @@ const LendPage = () => {
       <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-4">
         <StatCard
           label="Pool liquidity"
-          value={formatUsd(snapshot.totalCollateralUsd * 0.2, { compact: true })}
+          value={formatUsd(snapshot.overview.totalCollateralUsd * 0.2, { compact: true })}
           sub="Demo TVL proxy"
         />
         <StatCard label="Utilization" value={`${utilizationPct.toFixed(1)}%`} sub="Borrowed / supplied" />
