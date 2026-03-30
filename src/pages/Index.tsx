@@ -8,7 +8,7 @@ import CTASection from "@/components/CTASection";
 import Footer from "@/components/Footer";
 import { ArchitectureStrip } from "@/components/protocol/ArchitectureStrip";
 import { BnbChainNarrativeCard, ProtocolRiskCard, ProtocolThesisCard } from "@/components/protocol/NarrativeBlocks";
-import { ContentGrid } from "@/components/layout/ContentGrid";
+import { ContentGrid } from "@/components/Layout/ContentGrid";
 
 const Index = () => (
   <div className="min-h-screen">

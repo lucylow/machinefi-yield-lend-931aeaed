@@ -1,6 +1,6 @@
 import { useQuery } from "@tanstack/react-query";
-import { PageHeader } from "@/components/layout/PageHeader";
-import { AppPage } from "@/components/layout/AppPage";
+import { PageHeader } from "@/components/Layout/PageHeader";
+import { AppPage } from "@/components/Layout/AppPage";
 import { StatCard } from "@/components/defi/StatCard";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";

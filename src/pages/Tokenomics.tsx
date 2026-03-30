@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { AppPage } from "@/components/layout/AppPage";
-import { PageHeader } from "@/components/layout/PageHeader";
+import { AppPage } from "@/components/Layout/AppPage";
+import { PageHeader } from "@/components/Layout/PageHeader";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { InfoRow } from "@/components/protocol/InfoRow";
 import { Button } from "@/components/ui/button";

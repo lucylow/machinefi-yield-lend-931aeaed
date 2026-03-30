@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import { PageHeader } from "@/components/layout/PageHeader";
-import { AppPage } from "@/components/layout/AppPage";
+import { PageHeader } from "@/components/Layout/PageHeader";
+import { AppPage } from "@/components/Layout/AppPage";
 import { useProtocolOverview } from "@/hooks/useProtocolOverview";
 import { StatCard } from "@/components/defi/StatCard";
 import { WarningBanner } from "@/components/defi/WarningBanner";

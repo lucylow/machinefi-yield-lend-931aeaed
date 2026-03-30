@@ -1,5 +1,5 @@
-import { PageHeader } from "@/components/layout/PageHeader";
-import { AppPage } from "@/components/layout/AppPage";
+import { PageHeader } from "@/components/Layout/PageHeader";
+import { AppPage } from "@/components/Layout/AppPage";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Label } from "@/components/ui/label";
 import { Switch } from "@/components/ui/switch";
