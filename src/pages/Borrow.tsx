@@ -2,6 +2,7 @@ import { useState, useEffect } from 'react';
 import { toast } from 'sonner';
 import { useWeb3 } from '@/contexts/Web3Context';
 import { useHardwareNFT, type HardwareDevice } from '@/hooks/useHardwareNFT';
+import { useProtocolSimulationOptional } from '@/contexts/ProtocolSimulationContext';
 import { getLoadErrorMessage } from '@/lib/errors';
 import { motion } from 'framer-motion';
 import DepositHardware from '@/components/dapp/DepositHardware';
