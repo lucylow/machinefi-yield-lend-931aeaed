@@ -138,6 +138,8 @@ export class ProtocolSimulationEngine {
   private eventCounter = 0;
   private blockNumber = 18_942_100;
   private nextDeviceId: number;
+  private _cachedSnapshot: ProtocolSimulationSnapshot | null = null;
+  private _snapshotDirty = true;
 
   constructor(cfg: ProtocolSimulationEngineConfig) {
     this.scenario = DEMO_SCENARIOS[cfg.scenarioId];
