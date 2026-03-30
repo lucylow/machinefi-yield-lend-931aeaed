@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { toast } from "sonner";
 import { formatBpsAsPercent, formatUsd } from "@/lib/format";
 import { WorkflowStrip } from "@/components/protocol/WorkflowStrip";
-import { useProtocolSimulation } from "@/contexts/ProtocolSimulationContext";
+import { useProtocolSimulationOptional } from "@/contexts/ProtocolSimulationContext";
 
 // Floating particles background
 const Particles = () => (
