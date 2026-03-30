@@ -12,12 +12,12 @@ import { PositionCard } from "@/components/defi/PositionCard";
 
 const Positions = () => {
   const { isConnected, connectWallet } = useWeb3();
-  const { getUserPositions, repay } = useLendingPool();
+  const { getUserPositions, repay, isDemoMode } = useLendingPool();
   const [loans, setLoans] = useState<LoanPosition[]>([]);
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    if (!isConnected) {
+    if (!isConnected && !isDemoMode) {
       setLoans([]);
       setLoading(false);
       return;
@@ -40,7 +40,7 @@ const Positions = () => {
     return () => {
       cancelled = true;
     };
-  }, [isConnected, getUserPositions]);
+  }, [isConnected, isDemoMode, getUserPositions]);
 
   const handleRepay = async (nftId: number) => {
     await repay(nftId);
